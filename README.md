@@ -11,6 +11,7 @@ Model:
 Controllers:
 - state transitions
 - user input to make state transitions
+
 3) 
 View:
 - GUI
