@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BellevueX.iml" filepath="$PROJECT_DIR$/BellevueX.iml" />
       <module fileurl="file://$PROJECT_DIR$/CardGameLibrary/CardGameLibrary.iml" filepath="$PROJECT_DIR$/CardGameLibrary/CardGameLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bellevueX.iml" filepath="$PROJECT_DIR$/bellevueX.iml" />
       <module fileurl="file://$PROJECT_DIR$/hearts/hearts.iml" filepath="$PROJECT_DIR$/hearts/hearts.iml" />
     </modules>
   </component>

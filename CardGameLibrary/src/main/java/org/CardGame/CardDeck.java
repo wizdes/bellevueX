@@ -12,10 +12,10 @@ public class CardDeck {
     public final int MAX_CARD_VALUE = 13;
 
     public CardDeck(){
-        InitializeDeck();
+        initializeDeck();
     }
 
-    private void InitializeDeck() {
+    private void initializeDeck() {
         for(int i = MIN_CARD_VALUE; i <= MAX_CARD_VALUE; i++){
             for(Card.Suit s : Card.Suit.values()){
                 cards.add(new Card(i, s));
@@ -24,7 +24,7 @@ public class CardDeck {
     }
 
     // Performs Ficher-Yates shuffle on Deck.
-    public void Shuffle() {
+    public void shuffle() {
         for(int i = 0; i < cards.size(); i++){
             int val = rand.nextInt(cards.size() - i);
             Card temp = cards.get(i);
@@ -34,14 +34,18 @@ public class CardDeck {
     }
 
     // Picks one card from the deck.
-    public Card Draw(){
+    public Card draw(){
         // Remove from end.
         return cards.remove(cards.size() - 1);
     }
 
     // Opens a new pack of cards!
-    public void Reset() {
+    public void reset() {
         cards.clear();
-        InitializeDeck();
+        initializeDeck();
+    }
+
+    public int size() {
+        return cards.size();
     }
 }
