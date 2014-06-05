@@ -9,13 +9,13 @@ public class HeartsDealer extends Dealer<HeartsPlayer> {
 
     private CardDeck deck;
 
-    public HeartsDealer(CardDeck deck)
-    {
+    public HeartsDealer(CardDeck deck){
         this.deck = deck;
     }
 
     @Override
     public void Deal(ArrayList<HeartsPlayer> players) {
+        deck.shuffle();
         while(deck.size() > 0) {
             for (CardPlayer c : players) {
                 c.ReceiveCard(deck.draw());

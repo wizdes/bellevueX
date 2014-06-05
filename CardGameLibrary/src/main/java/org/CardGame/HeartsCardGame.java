@@ -25,12 +25,20 @@ public class HeartsCardGame {
 
         for(int i = 0; i < numPlayers; i++)
         {
-            players.add(new HeartsPlayer());
+            players.add(new HeartsPlayer(i));
         }
     }
 
     void rotateLeft(LinkedList<ArrayList<Card>> cardHolding){
         cardHolding.add(cardHolding.remove(0));
+    }
+
+    public void printHands()
+    {
+        for (HeartsPlayer h : players)
+        {
+            h.printHand();
+        }
     }
 
     public void startGame()
@@ -39,22 +47,45 @@ public class HeartsCardGame {
             // Deal
             dealer.Deal(players);
 
+            printHands();
+
             // Select cards to pass
             LinkedList<ArrayList<Card>> cardHolding = PassCards();
-
             // Receive
             ReceiveCards(cardHolding);
 
-            // Play
+            printHands();
+
+            // who ever has 2 of clubs
+            // calculate later
+            int offset = getStartingPlayer(players);
+
+            // play
             for(int i = 0; i < 13; i++){
-                for(HeartsPlayer h: players){
-                    h.Play(gameState);
+                for(int j = 0; j < 4; j++){
+                    players.get((j + offset) % 4).play(gameState);
                 }
-                gameState.resetTrickInPlay();
+
+                offset = gameState.nextTrick();
             }
 
             // Keep Score
+
+
+
+            gameState.NextRound();
         }
+    }
+
+    private static int getStartingPlayer(ArrayList<HeartsPlayer> players){
+        for(int i = 0; i < players.size(); i++){
+            for(Card c : players.get(i).getHand()){
+                if(c.suit == Card.Suit.Club && c.value == 2){
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     private LinkedList<ArrayList<Card>> PassCards() {

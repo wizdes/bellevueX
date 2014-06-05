@@ -1,5 +1,7 @@
 package org.CardGame;
 
+import java.util.Scanner;
+
 /**
  * Created by YongHui on 5/30/2014.
  */

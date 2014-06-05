@@ -21,6 +21,6 @@ public class Card {
 
     public String toString()
     {
-        return String.format("{0} {1}", value, suit.toString());
+        return String.format("%s %s", value, suit.toString());
     }
 }
